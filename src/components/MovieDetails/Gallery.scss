@@ -1,0 +1,101 @@
+.movie-details__gallery {
+    transition: background-color 0.5s ease;
+    user-select: none;
+    position: relative;
+    margin-top: 20px;
+    padding: 20px 20px;
+    background-color: black;
+    .movie-details__slider {
+        overflow: hidden;
+        .movie-details__line {
+            display: flex;
+            transition: transform 0.3s ease;
+            .movie-details__item {
+                height: 700px;
+                flex: 0 0 100%;
+                cursor: pointer;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .movie-details__slider-mini {
+            margin-top: 20px;
+            display: flex;
+            column-gap: 10px;
+            transition: 0.3s ease-in-out;
+            .movie-details__item {
+                flex: 0 0 10.43%;
+                cursor: pointer;
+                border: 5px solid transparent;
+                height: 80px;
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    pointer-events: none;
+                }
+                &.active {
+                    border: 5px solid rgb(0, 110, 255);
+                }
+            }
+        }
+        .movie-details__modal {
+            position: fixed;
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            img {
+                width: 90%;
+            }
+        }
+    }
+
+    .movie-details__slider-buttons {
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -65%);
+            background-color: rgba(0, 0, 0, 0.15);
+            padding: 30px 15px;
+            cursor: pointer;
+            border-radius: 7px;
+            border: 3px solid rgb(0, 153, 255);
+            transition: 0.3s ease;
+            svg {
+                width: 40px;
+                fill: white;
+                pointer-events: none;
+            }
+            &:hover {
+                border: 3px solid transparent;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+            &.disable {
+                background-color: rgba(128, 128, 128, 0.15);
+                border-color: gray;
+                cursor: auto;
+                svg {
+                    fill: gray;
+                }
+            }
+            &:first-child {
+                left: 40px;
+            }
+            &:last-child {
+                right: 40px;
+            }
+        }
+    }
+}

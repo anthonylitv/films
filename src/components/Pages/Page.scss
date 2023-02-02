@@ -1,0 +1,31 @@
+.pages__page-label {
+    cursor: pointer;
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    &:hover {
+        text-decoration: underline;
+    }
+    &.dark {
+        color: white;
+    }
+}
+
+.pages__page-input {
+    display: none;
+    &:checked + label {
+        cursor: auto;
+        background-color: rgb(201, 195, 195);
+        text-decoration: none;
+        &.dark {
+            background-color: rgb(206, 187, 187);
+            color: black;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Noto+Sans&family=Silkscreen:wght@700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgb(147, 147, 147);
+        &:hover {
+            background: rgb(176, 172, 172);
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        background: white;
+    }
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+a {
+    font-family: "Noto Sans", sans-serif;
+}

@@ -1,0 +1,15 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 700" width="1300" height="700">
+	<title>Новый проект</title>
+	<defs>
+		<image  width="1300" height="700" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABRQAAAK8AQMAAACkwKGmAAAAAXNSR0IB2cksfwAAAANQTFRFxrW1EOHK1gAAAIVJREFUeJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwawH8AAbfabY0AAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 58px;fill: #000000;font-weight: 700;font-family: "DejaVuSansCondensed-Bold", "DejaVu Sans Condensed" } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+	<text id="У этого фильма нет картинок" style="transform: matrix(1,0,0,1,211,366)" >
+		<tspan x="0" y="0" class="t0">У</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">э</tspan><tspan  y="0" class="t0">т</tspan><tspan  y="0" class="t0">о</tspan><tspan  y="0" class="t0">г</tspan><tspan  y="0" class="t0">о</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">ф</tspan><tspan  y="0" class="t0">и</tspan><tspan  y="0" class="t0">л</tspan><tspan  y="0" class="t0">ь</tspan><tspan  y="0" class="t0">м</tspan><tspan  y="0" class="t0">а</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">н</tspan><tspan  y="0" class="t0">е</tspan><tspan  y="0" class="t0">т</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">к</tspan><tspan  y="0" class="t0">а</tspan><tspan  y="0" class="t0">р</tspan><tspan  y="0" class="t0">т</tspan><tspan  y="0" class="t0">и</tspan><tspan  y="0" class="t0">н</tspan><tspan  y="0" class="t0">о</tspan><tspan  y="0" class="t0">к
+</tspan>
+	</text>
+</svg>

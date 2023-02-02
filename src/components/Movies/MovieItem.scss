@@ -1,0 +1,105 @@
+.movie-container__movie {
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    position: relative;
+    cursor: pointer;
+    .movie-container__movie-img {
+        position: relative;
+        height: 400px;
+        flex-shrink: 0;
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: cover;
+            display: block;
+        }
+        .movie-container__korzina {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 7px 10px;
+            border-radius: 10px;
+            opacity: 0;
+            svg {
+                fill: black;
+                width: 20px;
+            }
+            &:hover {
+                background-color: white;
+            }
+            &.anim {
+                animation: korzina-anim 0.3s ease infinite;
+            }
+        }
+    }
+    .movie-container__movie-content {
+        color: rgb(226, 223, 223);
+        background-color: black;
+        flex-grow: 1;
+        padding: 20px;
+        overflow-y: auto;
+        position: relative;
+        font-family: "Noto Sans", sans-serif;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: gray;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: black;
+        }
+        .movie-content__title {
+            width: 80%;
+            font-size: 17px;
+        }
+
+        .movie-content__genres {
+            color: rgb(154, 154, 154);
+            margin-top: 15px;
+            font-size: 15px;
+        }
+    }
+    .movie-container__movie-over {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    &:hover {
+        transform: translate(0, -3px);
+        .movie-container__movie-over {
+            display: block;
+        }
+        .movie-container__korzina {
+            opacity: 1;
+        }
+    }
+    &.dark {
+        .movie-container__movie-content {
+            background-color: #fff;
+            color: black;
+            .movie-content__genres {
+                color: rgb(80, 76, 76);
+            }
+        }
+        .movie-container__korzina {
+            background-color: rgba(0, 0, 0, 0.5);
+            svg {
+                fill: white;
+            }
+            &:hover {
+                background-color: black;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.movie-content__vote {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: rgb(17, 17, 17);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    &.green {
+        border: 2px solid green;
+        color: green;
+    }
+    &.red {
+        border: 2px solid red;
+        color: red;
+    }
+    &.orange {
+        border: 2px solid orange;
+        color: orange;
+    }
+}

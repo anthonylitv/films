@@ -1,0 +1,174 @@
+.movie-details {
+    position: relative;
+    padding-top: 20px;
+    .loader-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        align-items: center;
+        height: auto;
+        .loader {
+            position: static;
+        }
+    }
+    .containerdetails {
+        max-width: 1340px;
+        margin: 0 auto;
+    }
+    .movie-details__top {
+        transition: all 0.5s ease;
+        font-family: "Noto Sans", sans-serif;
+        display: flex;
+        height: 500px;
+        background-color: rgba(0, 0, 0, 0.7);
+        .movie-details__poster {
+        }
+        .movie-details__more {
+            transition: all 0.5s ease;
+            border-left: 5px solid black;
+            color: white;
+            overflow: auto;
+            position: relative;
+            flex-grow: 1;
+            padding: 10px 20px;
+
+            .movie-details__more-title {
+                color: orange;
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+            .movie-details__add-trailer-wrap {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                column-gap: 30px;
+            }
+            .movie-details__trailer-button {
+                transition: background-color 0.5s ease;
+                display: flex;
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.8);
+                width: fit-content;
+                padding: 7px 15px;
+                column-gap: 6px;
+                align-items: center;
+                border-radius: 5px;
+                svg {
+                    transition: all 0.5s ease;
+                    fill: white;
+                    width: 21px;
+                }
+                p {
+                    color: white;
+                    transition: 0.5s ease;
+                    font-size: 17px;
+                }
+                &:hover {
+                    background-color: black;
+                    svg {
+                        transform: translateX(-4px);
+                    }
+                }
+            }
+            .movie-details__more-tagline {
+                font-style: italic;
+            }
+            .movie-details__more-paragraph {
+                margin-top: 20px;
+            }
+            .movie-content__vote {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            .movie-container__korzina {
+                cursor: pointer;
+                display: flex;
+                width: 260px;
+                align-items: center;
+                padding: 7px;
+                border-radius: 5px;
+                background-color: rgb(98, 215, 98);
+                svg {
+                    fill: black;
+                    width: 20px;
+                }
+                p {
+                    color: black;
+                    margin-left: 10px;
+                }
+                &:hover {
+                    background-color: rgb(57, 230, 57);
+                }
+            }
+            .movie-details__more-footer {
+                transition: all 0.5s ease;
+                display: flex;
+                justify-content: space-around;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 16px;
+                background-color: rgba(0, 0, 0, 0.8);
+                .movie-details__more-footer-item {
+                    display: flex;
+                    column-gap: 10px;
+                    svg {
+                        width: 26px;
+                        fill: gray;
+                    }
+                    p {
+                        color: gray;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    &.dark {
+        .movie-details__top {
+            background-color: rgba(255, 255, 255, 0.7);
+            .movie-details__more {
+                border-left: 5px solid white;
+                color: black;
+                .movie-details__trailer-button {
+                    background-color: rgba(255, 255, 255, 0.8);
+                    svg {
+                        fill: black;
+                    }
+                    p {
+                        color: black;
+                    }
+                    &:hover {
+                        background-color: white;
+                    }
+                }
+            }
+            .movie-details__more-footer {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+        }
+        .movie-details__actors {
+            .movie-details__actor {
+                background-color: white;
+                h1 {
+                    color: black;
+                }
+                &::after {
+                    background-color: rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+        .movie-details__gallery {
+            background-color: white;
+        }
+        .movie-details__recommendations {
+            .movie-details__recommendations-title {
+                color: white;
+            }
+        }
+    }
+}

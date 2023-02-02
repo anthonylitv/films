@@ -1,0 +1,42 @@
+.kategories {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+    margin-top: 30px;
+    .kategories__input {
+        display: none;
+        &:checked + label {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+        }
+    }
+    .kategories__label {
+        transition: 0.1s ease;
+        cursor: pointer;
+        padding: 20px;
+        font-family: "Noto Sans", sans-serif;
+        text-decoration: underline;
+        user-select: none;
+        &:hover {
+            background-color: rgb(85, 80, 80);
+            color: rgb(196, 191, 191);
+            text-decoration: none;
+        }
+    }
+    &.dark {
+        .kategories__label {
+            color: white;
+            &:hover {
+                background-color: rgb(196, 191, 191);
+                color: rgb(85, 80, 80);
+            }
+        }
+        .kategories__input {
+            &:checked + label {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}

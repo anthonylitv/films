@@ -1,0 +1,33 @@
+.pages {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    margin-bottom: 20px;
+    .pages__main {
+        display: flex;
+        span {
+            margin: 10px 20px 0;
+        }
+    }
+    svg {
+        width: 35px;
+        cursor: pointer;
+        &:hover {
+            fill: rgba(0, 0, 0, 0.8);
+        }
+    }
+    &.dark {
+        svg {
+            fill: white;
+            &:hover {
+                fill: rgba(255, 255, 255, 0.8);
+            }
+        }
+        .pages__main {
+            span {
+                margin: 10px 20px 0;
+                color: white;
+            }
+        }
+    }
+}
