@@ -25,7 +25,7 @@ const Search = () => {
             sessionStorage.setItem("search", `&query=${inp.current.value}`)
             sessionStorage.setItem("searchValue", inp.current.value)
             setIzmena(inp.current.value)
-            navigate(`/search/${inp.current.value.replaceAll("/", "'")}/`)
+            navigate(`/search/${inp.current.value.replaceAll("/", "'")}/page/1`)
         } else if (inp.current.value.trim().length <= 0) {
             inp.current.value = ""
             inp.current.focus()

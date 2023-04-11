@@ -7,6 +7,7 @@ export async function serverZapros(zapros) {
     )
     const genresResponse = await responseGenres.json()
     const genres = await genresResponse.genres
+
     const responseKatalog = await fetch(zapros)
     const katalogResponse = await responseKatalog.json()
 
