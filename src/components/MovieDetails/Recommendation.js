@@ -34,8 +34,8 @@ const Recommendation = (props) => {
             <h1 className="movie-details__recommendations-title">
                 {contextMovieDetails.recommendations &&
                     (contextMovieDetails.recommendations.length > 0
-                        ? "Рекомендации к этому фильму"
-                        : "К этому фильму нет рекомендаций")}
+                        ? "Рекомендації до цього фільму"
+                        : "До цього фільму немає рекомендацій")}
             </h1>
             {katalog}
         </div>

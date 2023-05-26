@@ -17,8 +17,8 @@ const Header = (props) => {
                             sessionStorage.clear()
                         }}
                     >
-                        <span className="span-1">Проект</span>
-                        <span className="span-2">Фільми</span>
+                        <span className="span-1">Proj</span>
+                        <span className="span-2">Films</span>
                     </a>
                     <Search />
                 </div>
