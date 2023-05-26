@@ -30,7 +30,7 @@ const ObertkaMovies = (props) => {
                         props.items
                     ) : (
                         <div className="movie__null">
-                            По этому запросу ничего не найдено
+                            По цьому запиту нічого не знайдено
                         </div>
                     )}
                 </div>

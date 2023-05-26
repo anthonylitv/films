@@ -26,7 +26,7 @@ const MyMovies = (props) => {
                     addedItemsKatalog
                 ) : (
                     <div className="movie__null">
-                        Пока что у вас нет добавленных фильмов
+                        Поки що у вас немає улюбленого
                     </div>
                 )}
             </div>
