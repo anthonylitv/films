@@ -22,7 +22,7 @@ const Kategories = () => {
                 }
             />
             <label className="kategories__label" htmlFor="popular">
-                Популярные
+                Популярні
             </label>
             <input
                 className="kategories__input"
@@ -35,7 +35,7 @@ const Kategories = () => {
                 defaultChecked={kategory === "now_playing" && true}
             />
             <label className="kategories__label" htmlFor="now_playing">
-                Сейчас смотрят
+                Зараз дивляться
             </label>
 
             <input
@@ -49,7 +49,7 @@ const Kategories = () => {
                 defaultChecked={kategory === "upcoming" && true}
             />
             <label className="kategories__label" htmlFor="upcoming">
-                В ожидании
+                В очікуванні
             </label>
         </div>
     )
