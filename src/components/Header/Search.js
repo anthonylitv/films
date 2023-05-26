@@ -60,7 +60,7 @@ const Search = () => {
                 name=""
                 id=""
                 ref={inp}
-                placeholder="Поиск по названию"
+                placeholder="Пошук по назві"
             />
         </form>
     )
