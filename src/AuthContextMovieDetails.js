@@ -39,7 +39,7 @@ export const AuthContextMovieDetailsProvider = (props) => {
         }, 500)
 
         fetch(
-            `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=ru-RU`
+            `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-EN`
         )
             .then((response) => response.json())
             .then((otvet) => {

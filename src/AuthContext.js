@@ -51,7 +51,7 @@ export const AuthContextProvider = (props) => {
             serverZapros(
                 `https://api.themoviedb.org/3/movie/${
                     kategoryLS ? kategoryLS : "popular"
-                }?api_key=${API_KEY}&language=ru-RU&page=${pageLS}`
+                }?api_key=${API_KEY}&language=en-EN&page=${pageLS}`
             ).then((response) => {
                 setKatalog(response[0])
                 setTotalPages(response[1])

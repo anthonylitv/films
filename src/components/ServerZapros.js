@@ -3,7 +3,7 @@ export async function serverZapros(zapros) {
     const searchQueryLS = sessionStorage.getItem("search")
 
     const responseGenres = await fetch(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=ru-RU`
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-EN`
     )
     const genresResponse = await responseGenres.json()
     const genres = await genresResponse.genres

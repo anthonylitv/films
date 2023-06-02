@@ -32,7 +32,7 @@ export const AuthContextSearchPageProvider = (props) => {
             }, 20)
 
             serverZapros(
-                `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=ru-RU${searchQueryLS}&page=${pageLS}`
+                `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-EN${searchQueryLS}&page=${pageLS}`
             ).then((response) => {
                 setKatalogSearchPage(response[0])
                 setTotalPagesSearchPage(response[1])
