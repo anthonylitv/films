@@ -16,7 +16,10 @@ export const AuthContextMovieDetailsProvider = (props) => {
     const [videos, setVideos] = useState()
     const context = useContext(AuthContext)
     const id = location.pathname.split("/").pop().split("-")[0]
-    const [isRated, setIsRated] = useState(false)
+
+    const [isRated, setIsRated] = useState(
+        JSON.parse(localStorage.getItem(id)) ? true : false
+    )
 
     const installVote = (otvet) => {
         const tt = otvet.vote_average.toFixed(1).toString().split(".").pop()
@@ -92,7 +95,6 @@ export const AuthContextMovieDetailsProvider = (props) => {
         )
             .then((response) => response.json())
             .then((otvet) => {
-                console.log(otvet.results)
                 setVideos(otvet.results)
             })
     }, [location.pathname])

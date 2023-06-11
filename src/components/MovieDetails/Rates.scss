@@ -1,7 +1,7 @@
 .rates {
     display: flex;
+    position: relative;
     .rate {
-        position: relative;
         svg {
             width: 30px;
             pointer-events: none;
@@ -20,5 +20,16 @@
                 fill: yellow;
             }
         }
+    }
+
+    .info {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.disabled {
+        pointer-events: none;
     }
 }

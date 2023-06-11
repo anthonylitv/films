@@ -1,46 +1,35 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import AuthContextMovieDetails from "../../AuthContextMovieDetails"
 
 const Rate = (props) => {
     const context = useContext(AuthContextMovieDetails)
 
     const rateFilmHandler = () => {
-        localStorage.setItem(props.id, props.rate)
+        if (!context.isRated) {
+            localStorage.setItem(props.id, props.rate)
 
-        fetch(
-            "https://newratefilms-default-rtdb.firebaseio.com/ratedFilms.json"
-        )
-            .then((response) => response.json())
-            .then((ratedFilms) => {
-                ratedFilms = Object.values(ratedFilms)
-                const isCurrentRatedFilm = ratedFilms.find(
-                    (item) => props.id == item.id
-                )
-
-                if (isCurrentRatedFilm) {
-                    fetch(
-                        "https://newratefilms-default-rtdb.firebaseio.com/ratedFilms.json",
-                        {
-                            method: "PUT",
-                            body: JSON.stringify({
-                                id: props.id,
-                                rate: props.rate,
-                            }),
-                        }
-                    )
+            fetch(
+                "https://newratefilms-default-rtdb.firebaseio.com/ratedFilms.json",
+                {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id: props.id,
+                        rate: props.rate,
+                    }),
                 }
-            })
+            )
 
-        setTimeout(() => {
-            context.setIsRated(true)
-        }, 100)
+            setTimeout(() => {
+                context.setIsRated(true)
+            }, 100)
+        }
     }
 
     return (
         <div
             onClick={rateFilmHandler}
             className={`rate ${
-                JSON.parse(localStorage.getItem(props.id)) == props.rate
+                JSON.parse(localStorage.getItem(props.id)) >= props.rate
                     ? "active"
                     : ""
             }`}
