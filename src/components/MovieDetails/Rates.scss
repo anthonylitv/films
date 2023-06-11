@@ -8,8 +8,9 @@
         }
 
         cursor: pointer;
-        margin-right: 3px;
-        &:hover {
+        padding-right: 3px;
+
+        &.rated {
             svg {
                 fill: yellow;
             }

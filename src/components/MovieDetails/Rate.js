@@ -25,12 +25,30 @@ const Rate = (props) => {
         }
     }
 
+    const onMouseEnterHandler = (event) => {
+        const all = event.target.parentElement.children
+        let onIndex = [...all].findIndex((item) => item === event.target)
+
+        for (let i = 0; i <= onIndex; i++) {
+            all[i].classList.add("active")
+        }
+    }
+
+    const onMouseLeaveHandler = (event) => {
+        const all = event.target.parentElement.children
+        for (let element of all) {
+            element.classList.remove("active")
+        }
+    }
+
     return (
         <div
             onClick={rateFilmHandler}
+            onMouseEnter={onMouseEnterHandler}
+            onMouseLeave={onMouseLeaveHandler}
             className={`rate ${
                 JSON.parse(localStorage.getItem(props.id)) >= props.rate
-                    ? "active"
+                    ? "rated"
                     : ""
             }`}
         >
