@@ -15,6 +15,8 @@ export const AuthContextMovieDetailsProvider = (props) => {
     const [recommendations, setRecommendations] = useState()
     const [videos, setVideos] = useState()
     const context = useContext(AuthContext)
+    const id = location.pathname.split("/").pop().split("-")[0]
+    const [isRated, setIsRated] = useState(false)
 
     const installVote = (otvet) => {
         const tt = otvet.vote_average.toFixed(1).toString().split(".").pop()
@@ -103,9 +105,11 @@ export const AuthContextMovieDetailsProvider = (props) => {
                 actors: actors,
                 recommendations: recommendations,
                 videos: videos,
+                isRated: isRated,
+                setIsRated: setIsRated,
             }}
         >
-            <MovieDetails korzinaHandler={props.korzinaHandler} />
+            <MovieDetails korzinaHandler={props.korzinaHandler} id={id} />
         </AuthContextMovieDetails.Provider>
     )
 }

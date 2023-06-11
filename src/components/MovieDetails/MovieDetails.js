@@ -9,6 +9,7 @@ import Gallery from "./Gallery"
 import Recommendation from "./Recommendation"
 import Loader from "../Loader"
 import Trailer from "./Trailer"
+import Rates from "./Rates"
 
 const MovieDetails = (props) => {
     const context = useContext(AuthContext)
@@ -46,18 +47,22 @@ const MovieDetails = (props) => {
                             <p className="movie-details__more-tagline">
                                 {contextMovieDetails.movieDetails.tagline}
                             </p>
-                            <div className="movie-details__add-trailer-wrap">
-                                <Add
-                                    isAdd={isAdd}
-                                    korzinaHandler={() =>
-                                        props.korzinaHandler(
-                                            contextMovieDetails.movieDetails
-                                        )
-                                    }
-                                    movieDetails={true}
-                                />
-                                <Trailer />
+                            <div className="dod">
+                                <div className="movie-details__add-trailer-wrap">
+                                    <Add
+                                        isAdd={isAdd}
+                                        korzinaHandler={() =>
+                                            props.korzinaHandler(
+                                                contextMovieDetails.movieDetails
+                                            )
+                                        }
+                                        movieDetails={true}
+                                    />
+                                    <Trailer />
+                                </div>
+                                <Rates id={props.id} />
                             </div>
+
                             <p className="movie-details__more-paragraph">
                                 {!contextMovieDetails.movieDetails.overview
                                     ? "У цього фільму немає короткого опису"
@@ -69,6 +74,7 @@ const MovieDetails = (props) => {
                                         .vote_average
                                 }
                             />
+
                             <p className="movie-details__more-paragraph">
                                 Жанри: &nbsp;{" "}
                                 {contextMovieDetails.movieDetails.genre_ids}

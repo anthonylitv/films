@@ -1,0 +1,24 @@
+.rates {
+    display: flex;
+    .rate {
+        position: relative;
+        svg {
+            width: 30px;
+            pointer-events: none;
+        }
+
+        cursor: pointer;
+        margin-right: 3px;
+        &:hover {
+            svg {
+                fill: yellow;
+            }
+        }
+
+        &.active {
+            svg {
+                fill: yellow;
+            }
+        }
+    }
+}
