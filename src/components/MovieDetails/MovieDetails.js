@@ -74,6 +74,11 @@ const MovieDetails = (props) => {
                                         .vote_average
                                 }
                             />
+                            <div className="votes_count">
+                                {contextMovieDetails.movieDetails.votes_count
+                                    ? `Людей: ${contextMovieDetails.movieDetails.votes_count}`
+                                    : "Ніхто не поставив оцінку"}
+                            </div>
 
                             <p className="movie-details__more-paragraph">
                                 Жанри: &nbsp;{" "}

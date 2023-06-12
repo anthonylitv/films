@@ -21,7 +21,9 @@ export const AuthContextMovieDetailsProvider = (props) => {
         JSON.parse(localStorage.getItem(id)) ? true : false
     )
 
-    const installVote = (otvet) => {}
+    useEffect(() => {
+        setIsRated(JSON.parse(localStorage.getItem(id)) ? true : false)
+    }, [location.pathname])
 
     useEffect(() => {
         const API_KEY = "6e378720ed647ca276496b70d3821b27"
@@ -66,6 +68,10 @@ export const AuthContextMovieDetailsProvider = (props) => {
                             otvet.vote_average = "-"
                         }
 
+                        otvet.votes_count = Object.values(rates).filter(
+                            (item) => item.id == otvet.id
+                        ).length
+
                         let genres = otvet.genres.map((item) => item.name)
                         let slovo = genres[0].split("")
                         slovo[0] = slovo[0].toUpperCase()
@@ -101,11 +107,36 @@ export const AuthContextMovieDetailsProvider = (props) => {
 
         serverZapros(
             `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}&language=ru-RU`
-        ).then((otvet) => {
-            otvet[0].forEach((item) => {
-                installVote(item)
-            })
-            setRecommendations(otvet[0].filter((item, index) => index < 6))
+        ).then((response) => {
+            fetch(
+                "https://newratefilms-default-rtdb.firebaseio.com/ratedFilms.json"
+            )
+                .then((responseRates) => responseRates.json())
+                .then((rates) => {
+                    for (let movieResponse of response[0]) {
+                        movieResponse.vote_average = []
+
+                        for (let rate of Object.values(rates)) {
+                            if (movieResponse.id == rate.id) {
+                                movieResponse.vote_average.push(rate.rate)
+                            }
+                        }
+                        if (movieResponse.vote_average.length) {
+                            let suma = movieResponse.vote_average.reduce(
+                                (item, acc) => item + acc,
+                                0
+                            )
+                            movieResponse.vote_average = (
+                                suma / movieResponse.vote_average.length
+                            ).toFixed(1)
+                        } else {
+                            movieResponse.vote_average = "-"
+                        }
+                    }
+                    setRecommendations(
+                        response[0].filter((_, index) => index < 6)
+                    )
+                })
         })
 
         fetch(
