@@ -21,14 +21,7 @@ export const AuthContextMovieDetailsProvider = (props) => {
         JSON.parse(localStorage.getItem(id)) ? true : false
     )
 
-    const installVote = (otvet) => {
-        const tt = otvet.vote_average.toFixed(1).toString().split(".").pop()
-        if (tt === "0" || tt === "9") {
-            otvet.vote_average = Math.round(otvet.vote_average)
-        } else {
-            otvet.vote_average = otvet.vote_average.toFixed(1)
-        }
-    }
+    const installVote = (otvet) => {}
 
     useEffect(() => {
         const API_KEY = "6e378720ed647ca276496b70d3821b27"
@@ -48,15 +41,40 @@ export const AuthContextMovieDetailsProvider = (props) => {
         )
             .then((response) => response.json())
             .then((otvet) => {
-                installVote(otvet)
-                let genres = otvet.genres.map((item) => item.name)
-                let slovo = genres[0].split("")
-                slovo[0] = slovo[0].toUpperCase()
-                genres[0] = slovo.join("")
-                otvet.genres = genres.join(", ")
-                const newOtvet = { ...otvet, genre_ids: otvet.genres }
-                setMovieDetails(newOtvet)
-                window.scrollTo(0, 0)
+                fetch(
+                    "https://newratefilms-default-rtdb.firebaseio.com/ratedFilms.json"
+                )
+                    .then((responseRates) => responseRates.json())
+                    .then((rates) => {
+                        otvet.vote_average = []
+
+                        for (let rate of Object.values(rates)) {
+                            if (otvet.id == rate.id) {
+                                otvet.vote_average.push(rate.rate)
+                            }
+                        }
+                        console.log(otvet.vote_average)
+                        if (otvet.vote_average.length) {
+                            let suma = otvet.vote_average.reduce(
+                                (item, acc) => item + acc,
+                                0
+                            )
+                            otvet.vote_average = (
+                                suma / otvet.vote_average.length
+                            ).toFixed(1)
+                        } else {
+                            otvet.vote_average = "-"
+                        }
+
+                        let genres = otvet.genres.map((item) => item.name)
+                        let slovo = genres[0].split("")
+                        slovo[0] = slovo[0].toUpperCase()
+                        genres[0] = slovo.join("")
+                        otvet.genres = genres.join(", ")
+                        const newOtvet = { ...otvet, genre_ids: otvet.genres }
+                        setMovieDetails(newOtvet)
+                        window.scrollTo(0, 0)
+                    })
             })
 
         fetch(
@@ -97,7 +115,7 @@ export const AuthContextMovieDetailsProvider = (props) => {
             .then((otvet) => {
                 setVideos(otvet.results)
             })
-    }, [location.pathname])
+    }, [location.pathname, isRated])
 
     return (
         <AuthContextMovieDetails.Provider

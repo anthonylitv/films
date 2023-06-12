@@ -6,6 +6,8 @@ const Vote = (props) => {
             return "green"
         } else if (props.vote < 5) {
             return "red"
+        } else if (props.vote === "-") {
+            return "gray"
         } else {
             return "orange"
         }

@@ -53,8 +53,34 @@ export const AuthContextProvider = (props) => {
                     kategoryLS ? kategoryLS : "popular"
                 }?api_key=${API_KEY}&language=en-EN&page=${pageLS}`
             ).then((response) => {
-                setKatalog(response[0])
-                setTotalPages(response[1])
+                fetch(
+                    "https://newratefilms-default-rtdb.firebaseio.com/ratedFilms.json"
+                )
+                    .then((responseRates) => responseRates.json())
+                    .then((rates) => {
+                        for (let movieResponse of response[0]) {
+                            movieResponse.vote_average = []
+
+                            for (let rate of Object.values(rates)) {
+                                if (movieResponse.id == rate.id) {
+                                    movieResponse.vote_average.push(rate.rate)
+                                }
+                            }
+                            if (movieResponse.vote_average.length) {
+                                let suma = movieResponse.vote_average.reduce(
+                                    (item, acc) => item + acc,
+                                    0
+                                )
+                                movieResponse.vote_average = (
+                                    suma / movieResponse.vote_average.length
+                                ).toFixed(1)
+                            } else {
+                                movieResponse.vote_average = "-"
+                            }
+                        }
+                        setKatalog(response[0])
+                        setTotalPages(response[1])
+                    })
             })
         }
     }, [location.pathname])
