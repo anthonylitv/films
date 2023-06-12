@@ -34,14 +34,40 @@ export const AuthContextSearchPageProvider = (props) => {
             serverZapros(
                 `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-EN${searchQueryLS}&page=${pageLS}`
             ).then((response) => {
-                setKatalogSearchPage(response[0])
-                setTotalPagesSearchPage(response[1])
-                setTimeout(() => {
-                    context.setIsLoader(false)
-                    if (response[0].length !== 0) {
-                        document.body.style.overflow = "auto"
-                    }
-                }, 900)
+                fetch(
+                    "https://newratefilms-default-rtdb.firebaseio.com/ratedFilms.json"
+                )
+                    .then((responseRates) => responseRates.json())
+                    .then((rates) => {
+                        for (let movieResponse of response[0]) {
+                            movieResponse.vote_average = []
+
+                            for (let rate of Object.values(rates)) {
+                                if (movieResponse.id == rate.id) {
+                                    movieResponse.vote_average.push(rate.rate)
+                                }
+                            }
+                            if (movieResponse.vote_average.length) {
+                                let suma = movieResponse.vote_average.reduce(
+                                    (item, acc) => item + acc,
+                                    0
+                                )
+                                movieResponse.vote_average = (
+                                    suma / movieResponse.vote_average.length
+                                ).toFixed(1)
+                            } else {
+                                movieResponse.vote_average = "-"
+                            }
+                        }
+                        setKatalogSearchPage(response[0])
+                        setTotalPagesSearchPage(response[1])
+                        setTimeout(() => {
+                            context.setIsLoader(false)
+                            if (response[0].length !== 0) {
+                                document.body.style.overflow = "auto"
+                            }
+                        }, 900)
+                    })
             })
         }
     }, [searching, location.pathname])
