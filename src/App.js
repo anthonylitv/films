@@ -7,6 +7,8 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import Layout from "./components/Layout/Layout"
 import MyMovies from "./components/MyMovies/MyMovies"
 import SearchPage from "./components/SearchPage/SearchPage"
+import { useSelector } from "react-redux"
+import LogikaAuth from "./components/Authorization/LogikaAuth"
 
 if (!localStorage.getItem("addedItems")) {
     localStorage.setItem("addedItems", JSON.stringify([]))
@@ -77,8 +79,11 @@ function App() {
         }
     }, [addedItemsLS])
 
+    const isModalAuth = useSelector((state) => state.user.isModalAuth)
+
     return (
         <>
+            {isModalAuth && <LogikaAuth />}
             <Routes>
                 <Route
                     path="/"

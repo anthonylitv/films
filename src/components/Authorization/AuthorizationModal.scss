@@ -1,0 +1,79 @@
+.modalAuth {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(1, 1, 1, 0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .contentAuth {
+        position: relative;
+        background-color: white;
+        border-radius: 20px;
+        padding: 100px 120px;
+        font-size: 20px;
+        .zagAuth {
+            text-align: center;
+        }
+
+        .closedAuth {
+            font-size: 30px;
+            position: absolute;
+            left: 25px;
+            top: 15px;
+            cursor: pointer;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 40px;
+
+            input {
+                border-radius: 2px;
+                font-size: 20px;
+                padding: 15px 20px;
+                border: 1px solid transparent;
+                border-radius: 50px;
+                outline: none;
+                font-family: Arial, Helvetica, sans-serif;
+
+                &:focus {
+                    border: 1px solid black;
+                }
+            }
+
+            .loginAuth {
+                align-self: center;
+                padding: 10px 40px;
+                color: white;
+                border: none;
+                cursor: pointer;
+                background-color: green;
+                transition: 0.1s ease;
+
+                &:hover {
+                    background-color: white;
+                    color: green;
+                }
+            }
+
+            .registred {
+                text-decoration: underline;
+                cursor: pointer;
+                text-align: right;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+}

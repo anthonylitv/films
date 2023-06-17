@@ -4,6 +4,9 @@ import { AuthContextProvider } from "./AuthContext"
 import { BrowserRouter } from "react-router-dom"
 import { AuthContextSearchPageProvider } from "./AuthContextSearchPage"
 import { AuthContextPaginationProvider } from "./AuthContextPagination"
+import "./firebase"
+import { Provider } from "react-redux"
+import { store } from "./components/reducers/store"
 
 if (JSON.parse(localStorage.getItem("dark"))) {
     document.body.style.backgroundColor = "black"
@@ -11,13 +14,15 @@ if (JSON.parse(localStorage.getItem("dark"))) {
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-    <BrowserRouter>
-        <AuthContextProvider>
-            <AuthContextSearchPageProvider>
-                <AuthContextPaginationProvider>
-                    <App />
-                </AuthContextPaginationProvider>
-            </AuthContextSearchPageProvider>
-        </AuthContextProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <AuthContextProvider>
+                <AuthContextSearchPageProvider>
+                    <AuthContextPaginationProvider>
+                        <App />
+                    </AuthContextPaginationProvider>
+                </AuthContextSearchPageProvider>
+            </AuthContextProvider>
+        </BrowserRouter>
+    </Provider>
 )
