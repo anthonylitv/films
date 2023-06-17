@@ -9,6 +9,7 @@ import MyMovies from "./components/MyMovies/MyMovies"
 import SearchPage from "./components/SearchPage/SearchPage"
 import { useSelector } from "react-redux"
 import LogikaAuth from "./components/Authorization/LogikaAuth"
+import RegistrationPage from "./components/Authorization/RegistrationPage"
 
 if (!localStorage.getItem("addedItems")) {
     localStorage.setItem("addedItems", JSON.stringify([]))
@@ -156,8 +157,10 @@ function App() {
                             </>
                         }
                     />
+
                     <Route path="*" element={<Navigate to="/" />} />
                 </Route>
+                <Route path="registration" element={<RegistrationPage />} />
             </Routes>
         </>
     )

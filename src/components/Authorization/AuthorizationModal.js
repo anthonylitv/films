@@ -2,6 +2,7 @@ import "./AuthorizationModal.scss"
 import { useRef, useState } from "react"
 import { useDispatch } from "react-redux"
 import { setIsModalAuth } from "../reducers/userReducer"
+import { Link } from "react-router-dom"
 
 const AuthorizationModal = (props) => {
     const dispatch = useDispatch()
@@ -43,14 +44,14 @@ const AuthorizationModal = (props) => {
                         onChange={emailChangeHandler}
                         placeholder="Email"
                         type="text"
-                        className="email"
+                        className="inpAuth"
                     />
                     <input
                         value={pass}
                         onChange={passChangeHandler}
                         placeholder="Пароль"
                         type="password"
-                        className="email"
+                        className="inpAuth"
                     />
                     <button
                         onClick={() => props.userLogin(email, pass)}
@@ -58,7 +59,13 @@ const AuthorizationModal = (props) => {
                     >
                         Увійти
                     </button>
-                    <span className="registred">Зареєструватись</span>
+                    <Link
+                        to="registration"
+                        className="registred"
+                        onClick={() => dispatch(setIsModalAuth(false))}
+                    >
+                        Зареєструватись
+                    </Link>
                 </form>
             </div>
         </div>

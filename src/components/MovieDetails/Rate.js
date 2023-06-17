@@ -1,11 +1,16 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
 import AuthContextMovieDetails from "../../AuthContextMovieDetails"
+import { useAuth } from "../useAuth"
+import { useDispatch } from "react-redux"
+import { setIsModalAuth } from "../reducers/userReducer"
 
 const Rate = (props) => {
     const context = useContext(AuthContextMovieDetails)
+    const { isAuthorizated } = useAuth()
+    const dispatch = useDispatch()
 
     const rateFilmHandler = () => {
-        if (!context.isRated) {
+        if (!context.isRated && isAuthorizated) {
             localStorage.setItem(props.id, props.rate)
 
             fetch(
@@ -22,6 +27,10 @@ const Rate = (props) => {
             setTimeout(() => {
                 context.setIsRated(true)
             }, 100)
+        }
+
+        if (!context.isRated && !isAuthorizated) {
+            dispatch(setIsModalAuth(true))
         }
     }
 

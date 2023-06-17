@@ -37,35 +37,6 @@
             flex-direction: column;
             row-gap: 40px;
 
-            input {
-                border-radius: 2px;
-                font-size: 20px;
-                padding: 15px 20px;
-                border: 1px solid transparent;
-                border-radius: 50px;
-                outline: none;
-                font-family: Arial, Helvetica, sans-serif;
-
-                &:focus {
-                    border: 1px solid black;
-                }
-            }
-
-            .loginAuth {
-                align-self: center;
-                padding: 10px 40px;
-                color: white;
-                border: none;
-                cursor: pointer;
-                background-color: green;
-                transition: 0.1s ease;
-
-                &:hover {
-                    background-color: white;
-                    color: green;
-                }
-            }
-
             .registred {
                 text-decoration: underline;
                 cursor: pointer;
@@ -75,5 +46,34 @@
                 }
             }
         }
+    }
+}
+
+.loginAuth {
+    align-self: center;
+    padding: 10px 40px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: green;
+    transition: 0.1s ease;
+
+    &:hover {
+        background-color: white;
+        color: green;
+    }
+}
+
+.inpAuth {
+    border-radius: 2px;
+    font-size: 20px;
+    padding: 25px 40px;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &:focus {
+        border: 1px solid black;
     }
 }
