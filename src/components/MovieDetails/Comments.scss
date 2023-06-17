@@ -1,0 +1,62 @@
+.send-comment {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    textarea {
+        padding: 10px;
+        width: 800px;
+        resize: vertical;
+        border: 1px solid gray;
+        font-size: 20px;
+        margin-top: 10px;
+        outline: none;
+        background: none;
+        &:focus {
+            box-shadow: 0px 0px 2px black;
+        }
+
+        &.not {
+            border: 2px solid red;
+            color: red;
+
+            &::placeholder {
+                color: red;
+            }
+        }
+    }
+
+    button {
+        font-size: 19px;
+        background-color: rgb(232, 35, 35);
+        margin-top: 10px;
+        cursor: pointer;
+        color: white;
+        border: none;
+        padding: 13px 30px;
+    }
+}
+
+.comment {
+    margin-top: 20px;
+    max-width: 80vw;
+    word-wrap: break-word;
+    display: flex;
+    align-items: start;
+    font-size: 20px;
+    column-gap: 10px;
+    img {
+        width: 50px;
+    }
+
+    .comment-text {
+        margin-top: 5px;
+        max-width: 80vw;
+        word-wrap: break-word;
+    }
+
+    .time-comment {
+        font-size: 17px;
+        margin-left: 10px;
+    }
+}

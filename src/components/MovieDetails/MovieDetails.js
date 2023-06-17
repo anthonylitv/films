@@ -10,6 +10,7 @@ import Recommendation from "./Recommendation"
 import Loader from "../Loader"
 import Trailer from "./Trailer"
 import Rates from "./Rates"
+import Comments from "./Comments"
 
 const MovieDetails = (props) => {
     const context = useContext(AuthContext)
@@ -123,6 +124,7 @@ const MovieDetails = (props) => {
                     <Actors />
                     <Gallery />
                     <Recommendation korzinaHandler={props.korzinaHandler} />
+                    <Comments id={props.id} />
                 </div>
             </div>
         </>
