@@ -101,6 +101,9 @@
         }
     }
     &.dark {
+        .exit {
+            color: white;
+        }
         background-color: black;
         border-bottom: 2px solid white;
         &.details {
